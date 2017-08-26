@@ -1,0 +1,21 @@
+<% provide(:title, 'Security Key Derive') %>
+<h1><%= yield(:title) %></h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@key) do |f| %>
+        <%= render 'shared/error_messages' %>
+        <%= f.label 'Enb Key / NH' %>
+        <%= f.text_field :enb_key %>
+        <%= f.label 'NCC' %>
+        <%= f.text_field :ncc %>
+        <%= f.label 'DL-ARFCN' %>
+        <%= f.text_field :dl_arfcn %>
+        <%= f.label 'Security Algorithm' %>
+        <%= f.text_field :sec_algo %>
+        <%= f.label 'Integrity Algorithm' %>
+        <%= f.text_field :int_algo %>
+        <%= f.submit "Derive", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
