@@ -1,21 +1,31 @@
 <% provide(:title, 'Security Key Derive') %>
 <h1><%= yield(:title) %></h1>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@key) do |f| %>
-        <%= render 'shared/error_messages' %>
-        <%= f.label 'Enb Key / NH' %>
-        <%= f.text_field :enb_key %>
-        <%= f.label 'NCC' %>
-        <%= f.text_field :ncc %>
-        <%= f.label 'DL-ARFCN' %>
-        <%= f.text_field :dl_arfcn %>
-        <%= f.label 'Security Algorithm' %>
-        <%= f.text_field :sec_algo %>
-        <%= f.label 'Integrity Algorithm' %>
-        <%= f.text_field :int_algo %>
-        <%= f.submit "Derive", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
-</div>
+<%= form_for(@key) do |f| %>
+    <%= render 'shared/error_messages' %>
+    <div class="form-group">
+      <label for="security_key_enb_key">Enb Key / NH:</label>
+      <%= f.text_field :enb_key, class:"form-control"%>
+      <small id="security_key_enb_key_help" class="form-text text-muted">Support the hex and decimal, separated by a comma</small>
+    </div>
+
+    <label for="security_key_to_pci">Target Pci:</label>
+    <%= f.text_field :to_pci, class:"form-control"%>
+
+    <label for="security_key_dl_arfcn">DL-ARFCN:</label>
+    <%= f.text_field :dl_arfcn, class:"form-control"%>
+
+    <div class="form-group">
+      <label for="security_key_enc_algo">Selected Encryption Algorithm:</label>
+      <%= f.text_field :enc_algo, class:"form-control"%>
+      <small id="security_key_enc_algo_help" class="form-text text-muted">One of the 0..3</small>
+    </div>
+
+    <div class="form-group">
+      <label for="security_key_int_algo">Selected Integrity Algorithm:</label>
+      <%= f.text_field :int_algo, class:"form-control"%>
+      <small id="security_key_enc_algo_help" class="form-text text-muted">One of the 0..3</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+<% end %>

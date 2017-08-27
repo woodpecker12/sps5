@@ -24,7 +24,7 @@ gem 'jquery-rails', '2.2.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '1.0.2'
 
-gem 'bootstrap-sass', '2.0.4.1'
+gem 'bootstrap-sass', '3.3.5'
 gem 'bcrypt-ruby', '3.0.1'
 
 group :development, :test do

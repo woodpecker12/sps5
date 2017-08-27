@@ -15,8 +15,7 @@ class SecurityKeysController < ApplicationController
     @key = SecurityKey.new(key_params)
 
     if @key.valid?
-      flash[:success] = "Derived !!"
-      redirect_to @key
+      render 'new'
     else
       render 'new_error'
     end
@@ -25,6 +24,6 @@ class SecurityKeysController < ApplicationController
 
   private
     def key_params
-      params.require(:security_key).permit(:enb_key, :ncc, :dl_arfcn, :sec_algo, :int_algo)
+      params.require(:security_key).permit(:enb_key, :to_pci, :dl_arfcn, :enc_algo, :int_algo)
     end
 end
