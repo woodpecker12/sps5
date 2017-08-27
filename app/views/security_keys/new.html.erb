@@ -27,12 +27,23 @@
       <small id="security_key_enc_algo_help" class="form-text text-muted">One of the 0..3</small>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Derive</button>
+    </div>
 
-    <% if @key.invalid? %>
+    <% if @key.valid? %>
 
+        <label for="security_key_new_enb_key">New Enb Key:</label>
+        <%= f.text_field :new_enb_key, class:"form-control"%>
 
+        <label for="security_key_rrc_enc">Rrc Encryption Key:</label>
+        <%= f.text_field :rrc_enc, class:"form-control"%>
 
+        <label for="security_key_rrc_int">Rrc Integrity Key:</label>
+        <%= f.text_field :rrc_int, class:"form-control"%>
+
+        <label for="security_key_up_enc">Up Encryption Key:</label>
+        <%= f.text_field :up_enc, class:"form-control"%>
     <% end %>
 
 <% end %>

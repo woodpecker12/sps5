@@ -1,0 +1,41 @@
+<% provide(:title, 'Short MAC-I Generate') %>
+<h1><%= yield(:title) %></h1>
+
+<%= form_for(@maci) do |f| %>
+
+    <div class="form-group">
+      <label for="short_mac_i_enb_key">Enb Key / NH:</label>
+      <%= f.text_field :enb_key, class:"form-control"%>
+      <small id="security_key_enb_key_help" class="form-text text-muted">Support the hex and decimal, separated by a comma</small>
+    </div>
+
+    <label for="short_mac_i_to_pci">Target Pci:</label>
+    <%= f.text_field :to_pci, class:"form-control"%>
+
+    <label for="short_mac_i_to_enb_id">Target Enb Id:</label>
+    <%= f.text_field :to_enb_id, class:"form-control"%>
+
+    <label for="short_mac_i_src_pci">Source Pci:</label>
+    <%= f.text_field :src_pci, class:"form-control"%>
+
+    <label for="short_mac_i_src_enb_id">Source Enb Id:</label>
+    <%= f.text_field :src_enb_id, class:"form-control"%>
+
+    <div class="form-group">
+      <label for="short_mac_i_int_algo">Selected Integrity Algorithm:</label>
+      <%= f.text_field :int_algo, class:"form-control"%>
+      <small id="short_mac_i_int_algo_help" class="form-text text-muted">One of the 0..3</small>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Generate</button>
+    </div>
+
+    <% if @maci.valid? %>
+
+        <label for="short_mac_i_short_mac_i">Shor MAC-I:</label>
+        <%= f.text_field :short_mac_i, class:"form-control"%>
+
+    <% end %>
+
+<% end %>

@@ -1,10 +1,10 @@
-<% if @key.invalid? %>
+<% if object.invalid? %>
     <div id="error_explanation">
       <div class="alert alert-error">
-        The form contains <%= pluralize(@key.errors.count, "error") %>.
+        The form contains <%= pluralize(object.errors.count, "error") %>.
       </div>
       <ul>
-        <% @key.errors.full_messages.each do |msg| %>
+        <% object.errors.full_messages.each do |msg| %>
             <li>* <%= msg %></li>
         <% end %>
       </ul>

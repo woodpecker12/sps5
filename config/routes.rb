@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :security_keys
+  resources :short_mac_is
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/key_derive', to: 'security_keys#new', via: 'get'
+  match '/short_maci', to: 'short_mac_is#new', via: 'get'
   # match '/security_key', to: 'security_keys#new', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
