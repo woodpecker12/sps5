@@ -6,7 +6,7 @@
     <div class="form-group">
       <label for="security_key_enb_key">Enb Key / NH:</label>
       <%= f.text_field :enb_key, class:"form-control"%>
-      <small id="security_key_enb_key_help" class="form-text text-muted">Support the hex and decimal, separated by a comma</small>
+      <small id="security_key_enb_key_help" class="form-text text-muted">Only support the hex, separated by a comma</small>
     </div>
 
     <label for="security_key_to_pci">Target Pci:</label>
@@ -31,7 +31,7 @@
       <button type="submit" class="btn btn-primary btn-lg btn-block">Derive</button>
     </div>
 
-    <% if @key.valid? %>
+    <% if @key.valid? and !@key.init? %>
 
         <label for="security_key_new_enb_key">New Enb Key:</label>
         <%= f.text_field :new_enb_key, class:"form-control"%>

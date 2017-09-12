@@ -13,6 +13,7 @@ class SecurityKeysController < ApplicationController
 
   def create
     @key = SecurityKey.new(key_params)
+    @key.param_encode
 
     if @key.valid?
       render 'new'
